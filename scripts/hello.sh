@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+NAME="${1:-World}"
+NOW="$(date)"
+
+if git rev-parse HEAD >/dev/null 2>&1; then
+  
+  SHA="$(git rev-parse HEAD)"
+else
+  SHA="N/A"
+fi
+
+echo "Date: ${NOW}"
+echo "Commit: ${SHA}"
+echo "Name: ${NAME}"
+
+{
+  echo "Date: ${NOW}"
+  echo "Commit: ${SHA}"
+  echo "Name: ${NAME}"
+
+} > output.txt
