@@ -80,11 +80,13 @@ A: if the container was stopped I use this command : docker start jenkins, so it
 
 and if the container is removed , this command is used :
 
+```bash
 docker run -d --name jenkins \
   -p 8080:8080 \
   -v jenkins_home:/var/jenkins_home \
   jenkins/jenkins:lts
 
+```
 by this , the container will take the data that was saved by the previous container on my local volume (jenkins_home)
 
 ---
@@ -119,7 +121,7 @@ docker network connect jenkins-net jenkins
 
 
 Started the agent container with the official inbound agent image:
-
+```bash
 docker run -d --name jenkins-agent-1 \
   --restart unless-stopped \
   --network jenkins-net \
@@ -129,7 +131,7 @@ docker run -d --name jenkins-agent-1 \
   -e JENKINS_AGENT_WORKDIR="/home/jenkins/agent" \
   -v agent1_workdir:/home/jenkins/agent \
   jenkins/inbound-agent:latest
-
+```
 
 Modified the Jenkinsfile to target the agent by label:
 
