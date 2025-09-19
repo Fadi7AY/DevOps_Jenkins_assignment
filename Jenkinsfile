@@ -7,7 +7,7 @@ pipeline {
         stage('Run'){
             steps {
                 checkout scm
-                sh 'scripts/hello.sh "NAME"'
+                sh 'scripts/hello.sh "$NAME"'
 
 
             }
