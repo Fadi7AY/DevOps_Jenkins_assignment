@@ -16,7 +16,7 @@ echo "Date: ${NOW}"
 echo "Commit: ${SHA}"
 echo "Name: ${NAME}"
 
-{
+{ # for my local test
   echo "Date: ${NOW}"
   echo "Commit: ${SHA}"
   echo "Name: ${NAME}"

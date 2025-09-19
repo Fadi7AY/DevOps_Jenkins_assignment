@@ -1,2 +1,0 @@
-this is for tesing the cron job 
-test 2
