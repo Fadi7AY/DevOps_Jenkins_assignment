@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    //agent any
+    agent { label 'linux-docker-extra'}
     parameters { string(name: 'NAME' , defaultValue: 'World') }
 
     stages{
