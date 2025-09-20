@@ -1,5 +1,57 @@
 # 🚀 Jenkins_SAP 
 
+📘 Extra Explanation on the Task
+
+The goal of the assignment was to set up Jenkins in Docker, configuring persistence, adding an external agent, and running a simple pipeline.
+
+**Jenkins Controller in Docker**
+
+Runs as a container with its data directory (/var/jenkins_home) mapped to a named volume (jenkins_home).
+
+This ensures all jobs, plugins, and configuration survive container restarts or re-creation.
+
+**Dedicated Agent in Docker**
+
+A second container (jenkins/inbound-agent) was launched and connected to the controller using a secret.
+
+It runs builds on a mounted volume (agent1_workdir) so its workspace persists across restarts.
+
+The controller and agent communicate over a custom Docker network (jenkins-net).
+
+**Pipeline**
+
+Defined in Jenkinsfile.
+
+Uses a label to target the external agent (linux-docker-extra).
+
+Stages:
+
+Run: executes scripts/hello.sh "$NAME", which creates output.txt containing the current date, Git commit SHA, and user-provided name.
+
+Archive: saves output.txt as a build artifact and fingerprints it for traceability.
+
+**SCM Integration**
+
+Configured to poll the GitHub repo every ~2 minutes (H/2 * * * *).
+
+**Persistence**
+
+Controller state is preserved in jenkins_home volume.
+
+Agent workspace persists in agent1_workdir volume.
+
+Restarting either container does not lose configuration or job history.
+
+---
+
+**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it
+and archives it as an artifact (with fingerprint).
+
+
+**SCM polling:** `H/2 * * * *` (checks ~every 2 min for changes , if it spots any , the pipeline executes).
+
+---
+
 ## 📂 Repository  
 **Repo URL:** 👉 [https://github.com/Fadi7AY/DevOps_Jenkins_assignment](https://github.com/Fadi7AY/DevOps_Jenkins_assignment)
 
@@ -8,13 +60,6 @@ Clone locally:
 git clone https://github.com/Fadi7AY/DevOps_Jenkins_assignment.git
 cd DevOps_Jenkins_assignment
 ```
-
----
-**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it
-and archives it as an artifact (with fingerprint).
-
-
-**SCM polling:** `H/2 * * * *` (checks ~every 2 min for changes , if it spots any , the pipeline executes).
 
 ---
 
@@ -89,7 +134,7 @@ A: if the container was stopped I use this command :
 ```bash 
 docker start jenkins
 ```
-so it starts with the same data.
+This starts the same container with its persistent data from jenkins_home.
 
 and if the container is removed , this command is used :
 
