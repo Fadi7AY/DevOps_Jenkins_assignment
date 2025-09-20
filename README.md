@@ -107,7 +107,7 @@ docker run -d --name jenkins-agent-1 \
   --network jenkins-net \
   -e JENKINS_URL="http://jenkins:8080" \
   -e JENKINS_AGENT_NAME="linux-docker-1" \
-  -e JENKINS_SECRET="PASTE_NODE_SECRET_HERE" \
+  -e JENKINS_SECRET="NODE_SECRET" \
   -e JENKINS_AGENT_WORKDIR="/home/jenkins/agent" \
   -v agent1_workdir:/home/jenkins/agent \
   jenkins/inbound-agent:latest
@@ -188,7 +188,7 @@ docker run -d --name jenkins-agent-1 \
   --network jenkins-net \
   -e JENKINS_URL="http://jenkins:8080" \
   -e JENKINS_AGENT_NAME="linux-docker-1" \
-  -e JENKINS_SECRET="<SECRET_FROM_NODE_PAGE>" \
+  -e JENKINS_SECRET="NODE_SECRET" \
   -e JENKINS_AGENT_WORKDIR="/home/jenkins/agent" \
   -v agent1_workdir:/home/jenkins/agent \
   jenkins/inbound-agent:latest
