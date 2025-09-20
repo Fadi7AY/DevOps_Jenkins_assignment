@@ -12,9 +12,20 @@ pipeline {
             }
         }
 
+        stage('Checkout'){
+            steps {
+
+                checkout scm
+
+            }
+
+
+
+        }
+
         stage('Run'){
             steps {
-                checkout scm
+                
                 sh 'scripts/hello.sh "$NAME"'
 
 
