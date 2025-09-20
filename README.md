@@ -4,13 +4,13 @@
 
 The goal of the assignment was to set up Jenkins in Docker, configuring persistence, adding an external agent, and running a simple pipeline.
 
-**Jenkins Controller in Docker**
+## **Jenkins Controller in Docker**
 
 Runs as a container with its data directory (/var/jenkins_home) mapped to a named volume (jenkins_home).
 
 This ensures all jobs, plugins, and configuration survive container restarts or re-creation.
 
-**Dedicated Agent in Docker**
+## **Dedicated Agent in Docker**
 
 A second container (jenkins/inbound-agent) was launched and connected to the controller using a secret.
 
@@ -18,7 +18,7 @@ It runs builds on a mounted volume (agent1_workdir) so its workspace persists ac
 
 The controller and agent communicate over a custom Docker network (jenkins-net).
 
-**Pipeline**
+## **Pipeline**
 
 Defined in Jenkinsfile.
 
@@ -30,11 +30,11 @@ Run: executes scripts/hello.sh "$NAME", which creates output.txt containing the 
 
 Archive: saves output.txt as a build artifact and fingerprints it for traceability.
 
-**SCM Integration**
+## **SCM Integration**
 
 Configured to poll the GitHub repo every ~2 minutes (H/2 * * * *).
 
-**Persistence**
+## **Persistence**
 
 Controller state is preserved in jenkins_home volume.
 
@@ -160,7 +160,8 @@ even if a new one was created , it just must be connected to the volume).
 ---
 
 🏆 Bonus Section – Dedicated Linux Agent
-🔧 What I Did
+
+🔧 What I Did:
 
 Created a new node in Jenkins UI:
 
