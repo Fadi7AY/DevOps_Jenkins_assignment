@@ -28,6 +28,8 @@ Stages:
 
 **Info:** prints details about the running node/agent at the start of the build, using Jenkins environment variables
 
+**Checkout:** pulls code from SCM
+
 **Run:** executes scripts/hello.sh "$NAME", which creates output.txt containing the current date, Git commit SHA, and user-provided name.
 
 **Archive:** saves output.txt as a build artifact and fingerprints it for traceability.
