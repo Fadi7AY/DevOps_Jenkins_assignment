@@ -10,7 +10,7 @@ cd DevOps_Jenkins_assignment
 ```
 
 ---
-**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it (`cat`)
+**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it
 and archives it as an artifact (with fingerprint).
 
 
