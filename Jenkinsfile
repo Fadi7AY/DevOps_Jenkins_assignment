@@ -5,6 +5,14 @@ pipeline {
 
     stages{
 
+        stage('Info') {
+            steps {
+                echo "Running on node: ${env.NODE_NAME}"
+                echo "Executor number: ${env.EXECUTOR_NUMBER}"
+                echo "Workspace: ${env.WORKSPACE}"
+            }
+        }
+
         stage('Run'){
             steps {
                 checkout scm
