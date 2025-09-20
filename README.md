@@ -26,6 +26,8 @@ Uses a label to target the external agent (linux-docker-extra).
 
 Stages:
 
+**Info:** prints details about the running node/agent at the start of the build, using Jenkins environment variables
+
 **Run:** executes scripts/hello.sh "$NAME", which creates output.txt containing the current date, Git commit SHA, and user-provided name.
 
 **Archive:** saves output.txt as a build artifact and fingerprints it for traceability.
@@ -44,7 +46,7 @@ Restarting either container does not lose configuration or job history.
 
 ---
 
-**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it
+**Pipeline summary:** prints details about the running node/agent , checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it
 and archives it as an artifact (with fingerprint).
 
 
