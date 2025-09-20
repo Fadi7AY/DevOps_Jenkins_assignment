@@ -68,7 +68,7 @@ docker run -d --name jenkins-agent-1 \
 ---
 🔑 Credentials Handling
 
-**If repo is public, you can add “No credentials required**
+**If repo is public , No credentials required (as in this case)**
 
 No secrets are hardcoded in the repository or Jenkinsfile.
 
