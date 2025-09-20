@@ -232,5 +232,5 @@ Ran the pipeline — it executed on the agent and archived output.txt.
 -  Kill/restart test of Jenkins container confirming persistence  
   ![Restart](https://github.com/Fadi7AY/DevOps_Jenkins_assignment/blob/main/Screenshots/tried%20to%20kill%20the%20container.PNG?raw=true)
 
--  Agent Info  
-  ![Agent Info](https://github.com/Fadi7AY/DevOps_Jenkins_assignment/blob/main/Screenshots/agent%20info.PNG)
+-  Agent/Node Info  
+  ![Agent/Node Info](https://github.com/Fadi7AY/DevOps_Jenkins_assignment/blob/main/Screenshots/agent%20info.PNG)
