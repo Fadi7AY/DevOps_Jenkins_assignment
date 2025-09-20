@@ -26,9 +26,9 @@ Uses a label to target the external agent (linux-docker-extra).
 
 Stages:
 
-Run: executes scripts/hello.sh "$NAME", which creates output.txt containing the current date, Git commit SHA, and user-provided name.
+**Run:** executes scripts/hello.sh "$NAME", which creates output.txt containing the current date, Git commit SHA, and user-provided name.
 
-Archive: saves output.txt as a build artifact and fingerprints it for traceability.
+**Archive:** saves output.txt as a build artifact and fingerprints it for traceability.
 
 ## **SCM Integration**
 
