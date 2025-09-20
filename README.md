@@ -10,6 +10,13 @@ cd DevOps_Jenkins_assignment
 ```
 
 ---
+**Pipeline summary:** checks out from Git, runs `scripts/hello.sh "$NAME"` to create `output.txt`, prints it (`cat`)
+and archives it as an artifact (with fingerprint).
+
+
+**SCM polling:** `H/2 * * * *` (checks ~every 2 min for changes , if it spots any , the pipeline executes).
+
+---
 
 ## ⚙️ Jenkins Controller + Agent (Docker Setup)
 
@@ -60,6 +67,8 @@ docker run -d --name jenkins-agent-1 \
 ```
 ---
 🔑 Credentials Handling
+
+**If repo is public, you can add “No credentials required**
 
 No secrets are hardcoded in the repository or Jenkinsfile.
 
