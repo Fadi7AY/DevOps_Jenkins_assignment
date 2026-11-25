@@ -4,6 +4,22 @@
 
 The goal of the assignment was to set up Jenkins in Docker, configuring persistence, adding an external agent, and running a simple pipeline.
 
+## At a glance
+
+```mermaid
+flowchart LR
+    Git["Git repository"] --> Controller["Jenkins controller"]
+    Controller --> Agent["Docker agent · linux-docker-extra"]
+    Agent --> Script["scripts/hello.sh"]
+    Script --> Artifact["output.txt · archived artifact"]
+    Volume["jenkins_home volume"] --- Controller
+    Workspace["agent1_workdir volume"] --- Agent
+```
+
+
+<details>
+<summary><strong>Controller, agent and pipeline background</strong></summary>
+
 ## **Jenkins Controller in Docker**
 
 Runs as a container with its data directory (/var/jenkins_home) mapped to a named volume (jenkins_home).
@@ -55,6 +71,9 @@ and archives it as an artifact (with fingerprint).
 **SCM polling:** `H/2 * * * *` (checks ~every 2 min for changes , if it spots any , the pipeline executes).
 
 ---
+
+
+</details>
 
 ## 📂 Repository  
 **Repo URL:** 👉 [https://github.com/Fadi7AY/DevOps_Jenkins_assignment](https://github.com/Fadi7AY/DevOps_Jenkins_assignment)
